@@ -1,17 +1,14 @@
 import React , {useState} from 'react';
-import { Text,TextInput, View, Modal,TouchableOpacity,ScrollView, Button} from 'react-native';
-import {styles} from '../../assets/css/Styles';
+import { Text,TextInput, View,TouchableOpacity,ScrollView,SafeAreaView, Button} from 'react-native';
+import {styles} from '../../../assets/css/Styles';
 import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as ImagePicker from 'expo-image-picker';
-import firebase from '../../firebaseConfig';
+import firebase from '../../../firebaseConfig';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
-
-
-
-
-export default function CadAbastecimento (){
+export default function CadAbastecimento ({navigation}){
 
   
     if (firebase.auth().currentUser !==null){
@@ -21,7 +18,7 @@ export default function CadAbastecimento (){
     }
 
     const [veiculo, setVeiculo]= useState('');
-    const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date());
     const [odometro, setOdometro]= useState('');
     const [qntlitros, setQntlitros]= useState('');
     const [valorUnilitro, setValorUnilitro]= useState('');
@@ -76,7 +73,7 @@ export default function CadAbastecimento (){
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
-            aspect: [4, 3],
+            aspect: [3,4],
             quality: 1,
         });
     
@@ -122,9 +119,9 @@ export default function CadAbastecimento (){
 
 
     return( 
-        
-        <ScrollView >
-          <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
+        <ScrollView>
+          <View >
             <View style={styles.bloco}>
             <Text style={styles.txtregular}>Veículo</Text>
             <Picker
@@ -133,7 +130,7 @@ export default function CadAbastecimento (){
                 onValueChange={(itemValue, itemIndex) =>
                     setVeiculo(itemValue)
                 }>
-                <Picker.Item label="Selecione" value="" />
+                <Picker.Item style={styles.input} label="Selecione" value="" />
                 <Picker.Item label="Gol AAA 1234" value="Gol AAA 1234" />
                 <Picker.Item label="Ford Ka BBB 4567" value="Ford Ka BBB 4567" />
             </Picker>
@@ -203,19 +200,22 @@ export default function CadAbastecimento (){
                     <TouchableOpacity 
                         style={styles.botao}
                         onPress={pickImage}
-                    >
-                        <Text style={{color:'#ffffff'}}>Foto</Text>
-                      
+                    > 
+                      <View style={styles.boxrow}>
+                        <MaterialIcons name="add-a-photo" size={30} color="black" />
+                        <Text>Cupom Fiscal</Text>
+                      </View>
                     </TouchableOpacity>
                 </View>
             <View style={styles.buttonpstv}>
-                <TouchableOpacity onPress={() => {pushFirebase()}}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Abastecimento')}}>
                         <Text style={styles.txtButton}>SALVAR</Text>
                 </TouchableOpacity>
             </View>
             </View>
             </View>
         </ScrollView>
+        </SafeAreaView>
 
     );
 }

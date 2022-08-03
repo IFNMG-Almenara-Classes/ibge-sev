@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { Text, View,TextInput, TouchableOpacity, Modal, FlatList, Platform} from 'react-native';
 import { Ionicons, Entypo,FontAwesome5 } from '@expo/vector-icons';
 import {styles} from '../../../assets/css/Styles';
-import CadAbastecimento from '../../modais/CadAbastecimento';
 import firebase from '../../../firebaseConfig';
 
 
@@ -38,11 +37,9 @@ export default function Abastecimento ({ navigation }){
 
     return(
         <View style={styles.container}>
-            
-            <View>
             <View style={styles.boxrow}>
                 <FontAwesome5 name="filter" size={40} color="#004F88" />
-               <TouchableOpacity onPress={() => {setCadAbastecimento(!cadAbastecimento);}}>
+               <TouchableOpacity onPress={() => {navigation.navigate('CadAbastecimento')}}>
                     <View>
                         <Entypo name="circle-with-plus" size={50} color="#004F88" />
                     </View>
@@ -87,18 +84,8 @@ export default function Abastecimento ({ navigation }){
                                 <Text style={styles.txtregular}>{item.odometro}</Text>
                             </View>
                         </View>
-                        
                     )}
-                />  
-                <Modal animationType='slide' visible={cadAbastecimento}>
-                    <TouchableOpacity 
-                    onPress={() => {setCadAbastecimento(!cadAbastecimento);}}
-                    >
-                    <Ionicons name="ios-backspace" size={30} color={'#13293D'} />
-                    </TouchableOpacity>
-                    <CadAbastecimento/>
-                </Modal>           
-            </View>
+                />        
         </View>
     );
 }

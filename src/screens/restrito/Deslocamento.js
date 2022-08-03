@@ -2,11 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { Text, View,TextInput, TouchableOpacity, Modal, FlatList, Platform} from 'react-native';
 import { Ionicons, Entypo,FontAwesome5 } from '@expo/vector-icons';
 import {styles} from '../../../assets/css/Styles';
-import CadParcialDeslocamento from '../../modais/CadParcialDeslocamento';
 
 export default function Deslocamento ({ navigation }){
 
-    const [cadParcialDeslocamento, setCadParcialDeslocamento] = useState(false);
 
     const DATA = [
         {
@@ -52,7 +50,7 @@ export default function Deslocamento ({ navigation }){
         <View>
         <View style={styles.boxrow}>
             <FontAwesome5 name="filter" size={40} color="#004F88" />
-           <TouchableOpacity onPress={() => {setCadParcialDeslocamento(!cadParcialDeslocamento);}}>
+           <TouchableOpacity onPress={() => navigation.navigate('CadDeslocamento')}>
                 <View>
                     <Entypo name="circle-with-plus" size={50} color="#004F88" />
                 </View>
@@ -101,14 +99,7 @@ export default function Deslocamento ({ navigation }){
                     
                 )}
             />
-                <Modal animationType='slide' visible={cadParcialDeslocamento}>
-                    <TouchableOpacity 
-                    onPress={() => {setCadParcialDeslocamento(!cadParcialDeslocamento);}}
-                    >
-                    <Ionicons name="ios-backspace" size={30} color={'#13293D'} />
-                    </TouchableOpacity>
-                    <CadParcialDeslocamento/>
-                </Modal>
+                
                        
         </View>
     </View>

@@ -3,6 +3,7 @@ import Cadastro from './Cadastro';
 import Cadastrofull from './Cadastrofull';
 import Home from './restrito/Home';
 import Deslocamento from './restrito/Deslocamento';
+import CadDeslocamento from './restrito/CadDeslocamento';
 import Abastecimento from './restrito/Abastecimento';
 import Manutencao from './restrito/Manutencao';
 
@@ -16,4 +17,5 @@ export {
     Manutencao,
     Cadastro,
     Cadastrofull,
+    CadDeslocamento,
 };

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "back-jequi-covid",
-    "slug": "back-jequi-covid",
+    "name": "ibge-sev",
+    "slug": "ibge-sev",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rodrigosenna.backjequicovid"
+      "package": "com.rodrigosenna.ibge-sev"
     },
     "web": {
       "favicon": "./assets/favicon.png"

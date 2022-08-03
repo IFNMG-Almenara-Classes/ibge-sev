@@ -58,7 +58,7 @@ export default function Manutencao ({ navigation }){
                <View>
             <View style={styles.boxrow}>
                 <FontAwesome5 name="filter" size={40} color="#004F88" />
-               <TouchableOpacity onPress={() => {setCadManutencao(!cadManutencao);}}>
+               <TouchableOpacity onPress={() => {navigation.navigate('CadManutencao')}}>
                     <View>
                         <Entypo name="circle-with-plus" size={50} color="#004F88" />
                     </View>

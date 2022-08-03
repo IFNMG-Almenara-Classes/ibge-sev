@@ -1,17 +1,17 @@
 import React , {useState} from 'react';
 import { Text,TextInput, View, Modal,TouchableOpacity, Button} from 'react-native';
-import {styles} from '../../assets/css/Styles';
+import {styles} from '../../../assets/css/Styles';
 import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 
 
-export default function Cadmanutencao (){
+export default function CadDeslocamento ({ navigation }){
 
     const [finalidade, setFinalidade] = useState('');
     const [veiculo, setVeiculo]= useState('');
-    const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date());
     const [kmSaida, setKmSaida]= useState('');
     const [observacao, setObservacao]= useState('');
 
@@ -106,7 +106,7 @@ export default function Cadmanutencao (){
                 >
                 </TextInput>
             <View style={styles.buttonpstv}>
-                <TouchableOpacity onPress={() => navigation.navigate('Manutencao')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Deslocamento')}>
                         <Text style={styles.txtButton}>INICIAR DESLOCAMENTO</Text>
                 </TouchableOpacity>
             </View>

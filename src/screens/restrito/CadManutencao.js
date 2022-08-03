@@ -1,11 +1,11 @@
 import React , {useState} from 'react';
 import { Text,TextInput,Input, View, Modal,TouchableOpacity, Button} from 'react-native';
-import {styles} from '../../assets/css/Styles';
+import {styles} from '../../../assets/css/Styles';
 import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import firebase from '../../firebaseConfig';
+import firebase from '../../../firebaseConfig';
 
-export default function Cadmanutencao (){
+export default function Cadmanutencao ({navigation}){
 
   
     if (firebase.auth().currentUser !==null){
@@ -19,7 +19,7 @@ export default function Cadmanutencao (){
     const [tipo, setTipo]= useState('');
     const [odometro, setOdometro]= useState('');
     const [observacao, setObservacao]= useState('');
-    const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
 
@@ -106,6 +106,7 @@ export default function Cadmanutencao (){
                         mode={mode}
                         is24Hour={true}
                         onChange={onChange}
+                        style={styles.input}
                         />
                     )}
                 </View>
@@ -151,7 +152,7 @@ export default function Cadmanutencao (){
                 >
                 </TextInput>
             <View style={styles.buttonpstv}>
-                <TouchableOpacity  onPress={() => {pushFirebase()}}>
+                <TouchableOpacity  onPress={() => {navigation.navigate('Manutencao')}}>
                         <Text style={styles.txtButton}>SALVAR</Text>
                 </TouchableOpacity>
             </View>

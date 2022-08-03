@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Text, View,BackHandler,Alert } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Deslocamento, Abastecimento, Manutencao} from '../index';
+import { Deslocamento, Abastecimento, Manutencao, CadDeslocamento} from '../index';
 import { Fontisto,Entypo,FontAwesome,FontAwesome5, Feather } from '@expo/vector-icons';
 
 
@@ -34,9 +34,12 @@ export default function App({navigation}) {
     return () => backHandler.remove();
   }, []);
 
+  const Stack = createNativeStackNavigator();
+
   const Tab=createBottomTabNavigator();
 
   return (
+      
 
         <Tab.Navigator
           initialRouteName="Deslocamento" 
@@ -70,7 +73,7 @@ export default function App({navigation}) {
              
         </Tab.Navigator>
 
-
+       
 
 
         
